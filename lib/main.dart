@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
+import 'GaleriPage.dart';
+
 void main() {
   runApp(
     MultiProvider(
@@ -35,8 +37,8 @@ class _MyAppState extends State<MyApp> {
         ),
       ),
       body: [
-      // HomePage(),
-      // GaleriPage(),
+      HomePage(),
+      Galeripage(),
       // StorePage(),
       ][halsaatini],
       bottomNavigationBar: NavigationBar(
@@ -55,6 +57,54 @@ class _MyAppState extends State<MyApp> {
         ],
 
       ),
+    );
+  }
+}
+
+class HomePage extends StatelessWidget {
+  const HomePage({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    return ListView.builder(
+      itemCount: 10,
+      itemBuilder: (context, index) => ListTile(
+        leading: CircleAvatar(
+          foregroundImage: NetworkImage('https://picsum.photos/id/${index*5+2}/200'),
+          
+        ),
+          title:const Text('billy'),
+          subtitle: Text('Pinjam dulu ${index+1}00 besok diganti'),
+          trailing:const Text('12.0'),
+      ),
+    );
+  }
+}
+
+class TampilanListView extends StatelessWidget {
+  const TampilanListView({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    return ListView(
+      children: [
+        ListTile(
+          leading: CircleAvatar(
+            foregroundImage: NetworkImage('https://picsum.photos/id/237/200'),
+          ),
+          title:const Text('billy'),
+          subtitle: Text('Pinjam dulu besok diganti'),
+
+        ),
+          ListTile(
+          leading: CircleAvatar(
+            foregroundImage: NetworkImage('https://picsum.photos/id/237/200'),
+          ),
+          title:const Text('billy'),
+          subtitle: Text('Pinjam dulu besok diganti'),
+
+        ),
+      ],
     );
   }
 }

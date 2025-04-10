@@ -31,7 +31,18 @@ class _GaleripageState extends State<Galeripage> {
                       listFavorit[index] = !listFavorit[index];
                     });
                 },
+                icon: Icon(listFavorit[index]
+                ?Icons.favorite
+                :Icons.favorite_border,
+                color: Colors.pink,
+                size: 32,
+
                 ),
+                ),
+              ),
+              child: ClipRRect(
+                borderRadius: BorderRadius.circular(12),
+                child: Image.network("https//picsum.photos/id/${index*5+2}/200"),
               ),
             );
           },

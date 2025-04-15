@@ -1,18 +1,20 @@
 import 'package:flutter/material.dart';
-import 'package:provider/provider.dart';
+import 'package:myapp/pengaturan.dart';
+import 'package:myapp/storepage.dart';
 
 import 'GaleriPage.dart';
 
 void main() {
-  runApp(
-    MultiProvider(
-      providers: [
-        // ChangeNotifierProvider(create: (context) => ProviderProduk()),
-        // ChangeNotifierProvider(create: (context) => ProviderKeranjang()),
-      ],
-      child: MaterialApp(debugShowCheckedModeBanner: false, home: MyApp()),
-    ),
-  );
+  runApp(const MaterialApp(debugShowCheckedModeBanner: false, home: MyApp()));
+  // runApp(
+  //   MultiProvider(
+  //     providers: [
+  //       // ChangeNotifierProvider(create: (context) => ProviderProduk()),
+  //       // ChangeNotifierProvider(create: (context) => ProviderKeranjang()),
+  //     ],
+  //     child: MaterialApp(debugShowCheckedModeBanner: false, home: MyApp()),
+  //   ),
+  // );
 }
 
 class MyApp extends StatefulWidget {
@@ -30,19 +32,16 @@ class _MyAppState extends State<MyApp> {
       appBar: AppBar(
         title: Text(
           "WhatsApp",
-          style: TextStyle(
-            color: Colors.green,
-            fontWeight: FontWeight.bold,
-          ),
+          style: TextStyle(color: Colors.green, fontWeight: FontWeight.bold),
         ),
       ),
       body: [
-      HomePage(),
-      Galeripage(),
-      // StorePage(),
-      ][halsaatini],
+        HomePage(), Galeripage(), 
+        StorePage(),pengaturan(),
+        ]
+        [halsaatini],
       bottomNavigationBar: NavigationBar(
-        selectedIndex:halsaatini,
+        selectedIndex: halsaatini,
         onDestinationSelected: (int index) {
           setState(() {
             halsaatini = index;
@@ -51,11 +50,13 @@ class _MyAppState extends State<MyApp> {
         indicatorColor: Colors.green.shade200,
         destinations: [
           NavigationDestination(icon: Icon(Icons.home), label: "Home"),
-          NavigationDestination(icon: Icon(Icons.picture_in_picture), label: "Galeri"),
-           NavigationDestination(icon: Icon(Icons.store), label: "Store"), 
-
+          NavigationDestination(
+            icon: Icon(Icons.picture_in_picture),
+            label: "Galeri",
+          ),
+          NavigationDestination(icon: Icon(Icons.store), label: "Store"),
+          NavigationDestination(icon: Icon(Icons.settings), label: "Setings"),
         ],
-
       ),
     );
   }
@@ -67,16 +68,18 @@ class HomePage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return ListView.builder(
-      itemCount: 10,
-      itemBuilder: (context, index) => ListTile(
-        leading: CircleAvatar(
-          foregroundImage: NetworkImage('https://picsum.photos/id/${index*5+2}/200'),
-          
-        ),
-          title:const Text('billy'),
-          subtitle: Text('Pinjam dulu ${index+1}00 besok diganti'),
-          trailing:const Text('12.0'),
-      ),
+      itemCount: 20,
+      itemBuilder:
+          (context, index) => ListTile(
+            leading: CircleAvatar(
+              foregroundImage: NetworkImage(
+                'https://picsum.photos/id/${index * 5 + 2}/200',
+              ),
+            ),
+            title: const Text('billy'),
+            subtitle: Text('Pinjam dulu ${index + 1}00 besok diganti'),
+            trailing: const Text('12.0'),
+          ),
     );
   }
 }
@@ -92,17 +95,15 @@ class TampilanListView extends StatelessWidget {
           leading: CircleAvatar(
             foregroundImage: NetworkImage('https://picsum.photos/id/237/200'),
           ),
-          title:const Text('billy'),
+          title: const Text('billy'),
           subtitle: Text('Pinjam dulu besok diganti'),
-
         ),
-          ListTile(
+        ListTile(
           leading: CircleAvatar(
             foregroundImage: NetworkImage('https://picsum.photos/id/237/200'),
           ),
-          title:const Text('billy'),
+          title: const Text('billy'),
           subtitle: Text('Pinjam dulu besok diganti'),
-
         ),
       ],
     );

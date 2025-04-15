@@ -8,7 +8,7 @@ class Galeripage extends StatefulWidget {
 }
 
 class _GaleripageState extends State<Galeripage> {
-  final List listFavorit = List.generate(10, (index) => false);
+  final List listFavorit = List.generate(12, (index) => false);
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -17,7 +17,7 @@ class _GaleripageState extends State<Galeripage> {
         child: GridView.builder(
           itemCount: 12,
           gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
-            crossAxisCount: 3,
+            crossAxisCount: 2,
             mainAxisSpacing: 5.5,
             crossAxisSpacing: 5.5,
           ),
@@ -42,7 +42,7 @@ class _GaleripageState extends State<Galeripage> {
               ),
               child: ClipRRect(
                 borderRadius: BorderRadius.circular(12),
-                child: Image.network("https//picsum.photos/id/${index*5+2}/200"),
+                child: Image.network(   'https://picsum.photos/id/${index * 5 + 2}/200',),
               ),
             );
           },
